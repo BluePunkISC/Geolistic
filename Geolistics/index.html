@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>GEOLISTIC</title>
+  <!-- referencai al conenido de Bootstrap.mini -->
+  <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <script src="https://kit.fontawesome.com/60bbbc540a.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <link href="/styles.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="jumbotron">
+    <div style="display: flex;  justify-content:space-between ; margin-top: 1%; margin-bottom: 1%;">
+      <div>
+        <img src="./Images/GEOLISTIC.png" alt="GEOLISTIC" width="300">
+      </div>
+      <div style="padding-left: 10%">
+        <h1>GEOLISTIC</h1>
+        <p>Interactua con la página anotando los datos que deseas saber en los siguientes recuadros.</p>
+
+      </div>
+      <div>
+        <p style="padding-left: 10%;margin-top: 3%;"><i> <b>Recuerda
+              que la
+              elaboración de este presupuesto es una simulación de apoyo.</b></i></p>
+      </div>
+
+    </div>
+    <form class="form-horizontal" id="forma">
+      <div class="form-group">
+        <label for="from" class="col-xs-2 control label">
+          <i class="fa-solid fa-compass" style="color: blue;font-size: 20px">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Origen:</label>
+          <br>
+          <input type="text" id="from" placeholder="Ejemplo: Libramiento Tecnológico S/N A.P.247 . C.P 75770"
+            class="form-control">
+        </div>
+        <label for="to" class="col-xs-2 control label">
+          <i class="fa-solid fa-location-dot" style="color: blue;font-size: 20px">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Destino:</label>
+          <input type="text" id="to"
+            placeholder="Ejemplo: Ave. Independencia s/n, Col. Centro, Oaxaca de Juárez, Oaxaca, México"
+            class="form-control">
+        </div>
+      </div>
+      <div class="form-group">
+
+        <label for="transporte" class="col-xs-2 control label">
+          <i class="fa-solid fa-truck-moving" style="color: blue;font-size: 20px;">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Tipo de transporte:</label>
+          <select class="form-control" id="transporte" name="sellist1">
+            <option></option>
+            <option>VEHÍCULO ARTICULADO DE CARGA GENERAL EN TRANSPORTE INTERNACIONAL</option>
+            <option>CAMION DE 2 EJES</option>
+            <option>CAMION DE 3 EJES</option>
+            <option>FURGONETA</option>
+            <option>VEHÍCULO CISTERNA ARTICULADO DE MERCANCÍAS PELIGROSAS (QUÍMICOS)</option>
+          </select>
+        </div>
+        <label for="sueldo" class="col-xs-2 control label">
+          <i class="fa-solid fa-money-bill-1-wave" style="color: blue;font-size: 20px;">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Sueldo del conductor:</label>
+          <input type="number" id="sueldo" placeholder="Sueldo del conductor por kilometro" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="costoGas" class="col-xs-2 control label"><i class="fa-solid fa-sack-dollar"
+            style="color: blue;font-size: 20px;"></i>
+        </label>
+        <div class="col-xs-4">
+          <label>Costo del combustible:</label>
+          <input type="number" id="costoGas" placeholder="Costo del combustible por litro" class="form-control">
+        </div>
+        <label for="caseta" class="col-xs-2 control label">
+          <i class="fa-solid fa-house-circle-check" style="color: blue;font-size: 20px;">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Pago de casetas:</label>
+          <input type="number" id="caseta" placeholder="Pago general de casetas" class="form-control">
+        </div>
+      </div>
+      <!--
+      <div class="form-group">
+        <label for="llantas" class="col-xs-2 control label">
+          <i class="fa-solid fa-circle-dot" style="color: blue;font-size: 20px;">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Desgaste en llantas:</label>
+          <input type="number" id="llantas" placeholder="Número de kilómetros recoridos" class="form-control">
+        </div>
+        <label for="gasolina" class="col-xs-2 control label"><i class="fa-solid fa-gas-pump"
+            style="color: blue;font-size: 20px;">
+          </i>
+        </label>
+        <div class="col-xs-4">
+          <label>Número de litros de gasolina:</label>
+          <input type="number" id="gasolina" placeholder="Litros de gasolina" class="form-control">
+        </div>
+      </div>
+      -->
+      <div class="col-xs-offset-5 col-xs-1" style="margin-bottom: 30px;">
+        <button class="btn btn-info btn-lg" type="button" onclick="calcRoute()">
+          <i class="fa-solid fa-map-location-dot" style="color: black;font-size: 20px; "></i>
+          Hacer los calculos
+        </button>
+      </div>
+  </div>
+  </form>
+
+  </div>
+  <div class="container-fluid">
+    <div id="googleMap"></div>
+    <div id="output"></div>
+    <div id="respuesta"></div>
+  </div>
+  </div>
+  <!-- google maps link -->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTdpT4N43tCeZpmDn7BYyPYIg5jSEAx5g&libraries=places"></script>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
